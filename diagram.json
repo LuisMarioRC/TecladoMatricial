@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "author": "Ícaro Gonçalves",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -108.85,
+      "left": 339.55,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 32.75,
+      "left": 163.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -3.6,
+      "left": 224.6,
+      "attrs": { "color": "green", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": 71.15,
+      "left": 163.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 82.8,
+      "left": 224.6,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r6",
+      "top": 119.15,
+      "left": 163.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 34.8,
+      "left": 224.6,
+      "attrs": { "color": "blue", "flip": "" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzzer1", "top": -132, "left": 520.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP11", "led1:A", "green", [ "h0" ] ],
+    [ "pico:GP12", "led3:A", "green", [ "h-67.2", "v28.84" ] ],
+    [ "pico:GP13", "led2:A", "green", [ "h-57.6", "v67.24" ] ],
+    [ "led1:C", "r4:2", "green", [ "v0" ] ],
+    [ "led3:C", "r5:2", "green", [ "v0" ] ],
+    [ "led2:C", "r6:2", "green", [ "v0" ] ],
+    [ "r5:1", "pico:GND.4", "green", [ "h-57.6", "v124.8", "h211.2", "v-134.44" ] ],
+    [ "r4:1", "pico:GND.4", "green", [ "v0", "h-57.6", "v163.2", "h211.2", "v-134.4" ] ],
+    [ "r6:1", "pico:GND.4", "green", [ "v0", "h-57.6", "v76.8", "h211.2", "v-134.4" ] ],
+    [ "pico:GP22", "buzzer1:1", "green", [ "h0" ] ],
+    [ "pico:GND.6", "buzzer1:2", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
