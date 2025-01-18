@@ -6,74 +6,75 @@
       {
         "type": "board-pi-pico-w",
         "id": "pico",
-        "top": -70.45,
+        "top": 15.95,
         "left": -6.05,
         "attrs": { "builder": "pico-sdk" }
       },
       {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -48.8,
+        "left": -142.6,
+        "rotate": 270,
+        "attrs": { "color": "red" }
+      },
+      {
         "type": "wokwi-resistor",
         "id": "r1",
-        "top": 119.15,
-        "left": -96,
+        "top": -15.25,
+        "left": -86.4,
         "attrs": { "value": "1000" }
       },
       {
-        "type": "wokwi-rgb-led",
-        "id": "rgb1",
-        "top": 47,
-        "left": -162.9,
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": -0.8,
+        "left": -142.6,
         "rotate": 270,
-        "attrs": { "common": "cathode" }
-      },
-      {
-        "type": "wokwi-rgb-led",
-        "id": "rgb2",
-        "top": -39.4,
-        "left": -162.9,
-        "rotate": 270,
-        "attrs": { "common": "cathode" }
+        "attrs": { "color": "green" }
       },
       {
         "type": "wokwi-resistor",
         "id": "r2",
-        "top": 3.95,
-        "left": -105.6,
+        "top": 23.15,
+        "left": -86.4,
         "attrs": { "value": "1000" }
       },
       {
-        "type": "wokwi-rgb-led",
-        "id": "rgb3",
-        "top": -1,
-        "left": -162.9,
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 63.6,
+        "left": -140.2,
         "rotate": 270,
-        "attrs": { "common": "cathode" }
+        "attrs": { "color": "blue" }
       },
       {
-        "type": "wokwi-resistor",
-        "id": "r3",
-        "top": 42.35,
-        "left": -115.2,
-        "attrs": { "value": "1000" }
+        "type": "wokwi-membrane-keypad",
+        "id": "keypad1",
+        "top": -270.8,
+        "left": -503.2,
+        "attrs": {}
       }
     ],
     "connections": [
       [ "pico:GP0", "$serialMonitor:RX", "", [] ],
       [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
-      [ "r1:1", "rgb1:COM", "#8f4814", [ "v0" ] ],
-      [ "rgb1:R", "pico:GP13", "red", [ "v0" ] ],
-      [ "rgb1:G", "pico:GP11", "green", [ "v0" ] ],
-      [ "rgb1:B", "pico:GP12", "blue", [ "h67.2", "v-1.6" ] ],
-      [ "pico:GP3", "rgb2:B", "blue", [ "h0" ] ],
-      [ "pico:GP2", "rgb2:G", "green", [ "h0" ] ],
-      [ "pico:GP4", "rgb2:R", "red", [ "h0" ] ],
-      [ "rgb2:COM", "r2:1", "#8f4814", [ "v0" ] ],
-      [ "pico:GND.2", "r2:2", "black", [ "h0" ] ],
-      [ "pico:GP6", "rgb3:G", "green", [ "h0" ] ],
-      [ "pico:GP7", "rgb3:B", "blue", [ "h0" ] ],
-      [ "pico:GP8", "rgb3:R", "red", [ "h0" ] ],
-      [ "pico:GND.3", "r3:2", "black", [ "h0" ] ],
-      [ "r3:1", "rgb3:COM", "#8f4814", [ "v0" ] ]
+      [ "pico:GP2", "led1:A", "green", [ "h0" ] ],
+      [ "pico:GND.2", "r1:2", "black", [ "h0" ] ],
+      [ "r1:1", "led1:C", "green", [ "v0" ] ],
+      [ "pico:GP3", "led2:A", "green", [ "h0" ] ],
+      [ "pico:GND.3", "r2:2", "black", [ "h-76.8", "v-9.6" ] ],
+      [ "r2:1", "led2:C", "green", [ "v0" ] ],
+      [ "pico:GP10", "led3:A", "green", [ "h0" ] ],
+      [ "pico:GND.4", "led3:C", "black", [ "h0" ] ],
+      [ "keypad1:R1", "pico:GP14", "green", [ "v0" ] ],
+      [ "keypad1:R2", "pico:GP15", "green", [ "v0" ] ],
+      [ "keypad1:R3", "pico:GP16", "green", [ "v0" ] ],
+      [ "keypad1:R4", "pico:GP17", "green", [ "v0" ] ],
+      [ "keypad1:C1", "pico:GP18", "green", [ "v0" ] ],
+      [ "keypad1:C2", "pico:GP19", "green", [ "v0" ] ],
+      [ "keypad1:C3", "pico:GP20", "green", [ "v0" ] ],
+      [ "keypad1:C4", "pico:GP21", "green", [ "v0" ] ]
     ],
     "dependencies": {}
   }
