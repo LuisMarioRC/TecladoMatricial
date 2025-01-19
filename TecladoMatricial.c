@@ -19,6 +19,9 @@
 #define GREEN_LED 3
 #define BLUE_LED 10
 
+// Definindo o pino para o buzzer
+#define BUZZER_PIN 22
+
 // Mapeamento das teclas para cada posição no teclado 4x4
 const char key_mapping[4][4] = {
     {'1', '2', '3', 'A'},
@@ -74,8 +77,15 @@ void setup_leds() {
     gpio_put(BLUE_LED, 0);
 }
 
+// Função para configurar o buzzer
+void setup_buzzer() {
+    gpio_init(BUZZER_PIN);
+    gpio_set_dir(BUZZER_PIN, GPIO_OUT);
+    gpio_put(BUZZER_PIN, 0); // Inicialmente desligado
+}
+
 // Função para acionar os LEDs conforme a tecla pressionada
-void update_leds(char pressed_key) {
+void update_leds_and_buzzer(char pressed_key) {
     // Desliga todos os LEDs antes de acionar o novo
     gpio_put(RED_LED, 0);
     gpio_put(GREEN_LED, 0);
@@ -88,15 +98,21 @@ void update_leds(char pressed_key) {
         gpio_put(GREEN_LED, 1);  // Acende o LED verde
     } else if (pressed_key == '3') {
         gpio_put(BLUE_LED, 1);  // Acende o LED azul
+    } else if (pressed_key == '4') {
+        // Ativa o buzzer quando a tecla '4' é pressionada
+        gpio_put(BUZZER_PIN, 1);
+        sleep_ms(500);  // Buzzer ligado por 500ms
+        gpio_put(BUZZER_PIN, 0);
     }
 }
 
 int main() {
     stdio_init_all();  // Inicializa a comunicação serial para depuração
 
-    // Configura o teclado e os LEDs
+    // Configura o teclado, os LEDs e o buzzer
     setup_keypad();
     setup_leds();
+    setup_buzzer();
 
     char current_key = '\0'; // Variável para armazenar a última tecla pressionada
 
@@ -104,13 +120,13 @@ int main() {
         // Lê o teclado para verificar se uma tecla foi pressionada
         char key = read_keypad();
 
-        // Atualiza os LEDs apenas se a tecla for diferente da anterior
+        // Atualiza os LEDs e o buzzer apenas se a tecla for diferente da anterior
         if (key != current_key) {
             current_key = key; // Atualiza a tecla pressionada
 
-            // Se uma tecla foi pressionada, atualiza os LEDs
+            // Se uma tecla foi pressionada, atualiza os LEDs e o buzzer
             if (current_key != '\0') {
-                update_leds(current_key);  // Controla os LEDs com base na tecla
+                update_leds_and_buzzer(current_key);  // Controla os LEDs e o buzzer com base na tecla
             }
         }
 
