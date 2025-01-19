@@ -88,19 +88,37 @@ void control_devices(char key) {
     gpio_put(BUZZER_PIN, 0);
 
     switch (key) {
-        case '1':
+        case 'A':
             gpio_put(RED_LED, 1);  // Acende o LED vermelho
+            sleep_ms(1000);
+            gpio_put(RED_LED, 0);
             break;
-        case '2':
+        case 'B':
+            gpio_put(BLUE_LED, 1);  // Acende o LED verde
+            sleep_ms(1000);
+            gpio_put(BLUE_LED, 0);
+            break;
+        case 'C':
+            gpio_put(GREEN_LED, 1);  // Acende o LED azul
+            sleep_ms(1000);
+            gpio_put(GREEN_LED, 0);
+            break;
+        case 'D':
+            gpio_put(RED_LED, 1);  // Acende o LED vermelho
             gpio_put(GREEN_LED, 1);  // Acende o LED verde
-            break;
-        case '3':
             gpio_put(BLUE_LED, 1);  // Acende o LED azul
+            sleep_ms(1000);
+            gpio_put(RED_LED, 0);
+            gpio_put(GREEN_LED, 0);
+            gpio_put(BLUE_LED, 0);
             break;
-        case '4':
+        case '#':
+            for (int i = 0; i < 100; i++) {
             gpio_put(BUZZER_PIN, 1); // Ativa o buzzer
-            sleep_ms(500);
-            gpio_put(BUZZER_PIN, 0);
+            sleep_us(1000); // Ajuste este valor para alterar a frequência
+            gpio_put(BUZZER_PIN, 0); // Desativa o buzzer
+            sleep_us(1000); // Ajuste este valor para alterar a frequência
+            }
             break;
         default:
             break;
@@ -118,12 +136,9 @@ int main() {
 
     while (true) {
         char key = read_keypad(); // Lê a tecla pressionada
-        if (key != '\0' && key != last_key) { // Se tecla diferente foi pressionada
-            last_key = key;
-            printf("Tecla pressionada: %c\n", key);
-            control_devices(key); // Controla LEDs e buzzer
-        }
-        sleep_ms(150); // Delay para evitar múltiplas leituras
+        printf("Tecla pressionada: %c\n", key);
+        control_devices(key); // Controla LEDs e buzzer
+        sleep_ms(100); // Delay para evitar múltiplas leituras
     }
 
     return 0;

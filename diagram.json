@@ -1,7 +1,7 @@
 {
   "version": 1,
   "author": "Ícaro Gonçalves",
-  "co-author": "Adryelle Linhares",
+  "co-author": "Adryelle Linhares", 
   "co-author": "Leonardo Jonatan",
   "editor": "wokwi",
   "parts": [
@@ -16,7 +16,7 @@
       "type": "wokwi-led",
       "id": "led1",
       "top": -48.8,
-      "left": -142.6,
+      "left": -161.8,
       "rotate": 270,
       "attrs": { "color": "red" }
     },
@@ -30,8 +30,8 @@
     {
       "type": "wokwi-led",
       "id": "led2",
-      "top": -0.8,
-      "left": -142.6,
+      "top": 37.6,
+      "left": -161.8,
       "rotate": 270,
       "attrs": { "color": "green" }
     },
@@ -45,8 +45,8 @@
     {
       "type": "wokwi-led",
       "id": "led3",
-      "top": 63.6,
-      "left": -140.2,
+      "top": -0.8,
+      "left": -161.8,
       "rotate": 270,
       "attrs": { "color": "blue" }
     },
