@@ -50,7 +50,7 @@ A solução implementa estratégias para:
 3. Compile o código com o compilador de C:
 
     ```bash
-    gcc main.c -o main
+    gcc TecladoMatricial.c -o main
     ```
 
 4. Execute o programa:
