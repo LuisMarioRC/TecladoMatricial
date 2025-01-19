@@ -77,4 +77,3 @@ A equipe foi formada por membros com as seguintes responsabilidades:
 ## Vídeo
 
 Acesse o vídeo ensaio da solução no link: 
-
