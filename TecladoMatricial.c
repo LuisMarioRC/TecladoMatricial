@@ -1,39 +1,19 @@
-#define BUZZER 13
+#define BUZZER_PIN 22
 
-void init_leds_and_buzzer() {
-    gpio_init(LED_R); gpio_set_dir(LED_R, GPIO_OUT);
-    gpio_init(LED_G); gpio_set_dir(LED_G, GPIO_OUT);
-    gpio_init(LED_B); gpio_set_dir(LED_B, GPIO_OUT);
-    gpio_init(BUZZER); gpio_set_dir(BUZZER, GPIO_OUT);
-
-    gpio_put(LED_R, 0);
-    gpio_put(LED_G, 0);
-    gpio_put(LED_B, 0);
-    gpio_put(BUZZER, 0);
+// Inicialização do buzzer
+void init_buzzer() {
+    gpio_init(BUZZER_PIN);
+    gpio_set_dir(BUZZER_PIN, GPIO_OUT);
+    gpio_put(BUZZER_PIN, 0); // Inicialmente desligado
 }
 
-void control_leds_and_buzzer(char key) {
-    gpio_put(LED_R, 0);
-    gpio_put(LED_G, 0);
-    gpio_put(LED_B, 0);
-    gpio_put(BUZZER, 0);
+void control_devices(char key) {
+    // Desliga todos os LEDs e o buzzer
+    gpio_put(RED_LED, 0);
+    gpio_put(GREEN_LED, 0);
+    gpio_put(BLUE_LED, 0);
+    gpio_put(BUZZER_PIN, 0);
 
-    switch (key) {
-        case 'A':
-            gpio_put(LED_R, 1);
-            break;
-        case 'B':
-            gpio_put(LED_G, 1);
-            break;
-        case 'C':
-            gpio_put(LED_B, 1);
-            break;
-        case '#':
-            gpio_put(BUZZER, 1);
-            break;
-        default:
-            break;
-    }
+int main() {
+    init_buzzer();    // Inicializa o buzzer
 }
-
-init_leds_and_buzzer();
