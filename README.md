@@ -76,4 +76,4 @@ A equipe foi formada por membros com as seguintes responsabilidades:
 
 ## Vídeo
 
-Acesse o vídeo ensaio da solução no link: 
+Acesse o vídeo ensaio da solução no link: https://www.dropbox.com/scl/fi/sevkgpridxf9ni0aacf7h/2025-01-19-21-26-02.mkv?rlkey=rylluna7309gd5z1ymwyw3alz&st=7oe5m8l3&dl=0
