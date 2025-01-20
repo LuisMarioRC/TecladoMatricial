@@ -71,7 +71,7 @@ A equipe foi formada por membros com as seguintes responsabilidades:
 
 - <b><a href="https://github.com/LeonardoGermano">Leonardo</a></b> – Controle de LEDs.
 - <b><a href="https://github.com/koda159">Ary Allan</a></b>– Configuração do buzzer.
-- <b><a href="https://github.com/vinicius-bash">Vinícios José</a></b>– Implementação do teclado matricial.
+- <b><a href="https://github.com/vinicius-bash">Vinícius José</a></b>– Implementação do teclado matricial.
 - <b><a href="https://github.com/icarosg">Ícaro Gonçalves</a></b> e <b><a href="https://github.com/M00NCX"> Adryelle Thayne</a></b> – Testes e simulação no Wokwi.
 
 ## Vídeo
